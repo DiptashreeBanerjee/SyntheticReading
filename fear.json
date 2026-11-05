@@ -1,0 +1,235 @@
+{
+  "corpus": "The Face in the Dark",
+  "author": "Ruskin Bond",
+  "analysis": "Fear imagery",
+  "extraction": [
+    {
+      "lexical_item": "late one night",
+      "category": "temporal_atmosphere",
+      "expression_type": "multi_word_expression",
+      "lines": [1]
+    },
+    {
+      "lexical_item": "after dark",
+      "category": "darkness_and_uncertainty",
+      "expression_type": "multi_word_expression",
+      "lines": [3]
+    },
+    {
+      "lexical_item": "strong wind",
+      "category": "environmental_threat",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "sad, eerie sounds",
+      "category": "auditory_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "kept most people to the main road",
+      "category": "avoidance_and_apprehension",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "not a nervous or imaginative man",
+      "category": "psychological_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "gleam",
+      "category": "visual_uncertainty",
+      "expression_type": "single_word",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "batteries were running down",
+      "category": "vulnerability_and_danger",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "moved fitfully",
+      "category": "visual_uncertainty",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "narrow forest path",
+      "category": "confinement_and_vulnerability",
+      "expression_type": "multi_word_expression",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "stopped",
+      "category": "reaction_to_perceived_threat",
+      "expression_type": "single_word",
+      "lines": [5]
+    },
+    {
+      "lexical_item": "sensed that something was wrong",
+      "category": "apprehension",
+      "expression_type": "multi_word_expression",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "crying",
+      "category": "emotional_distress",
+      "expression_type": "single_word",
+      "lines": [7, 9]
+    },
+    {
+      "lexical_item": "his head hung down",
+      "category": "bodily_manifestation_of_distress",
+      "expression_type": "multi_word_expression",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "his body shook convulsively",
+      "category": "physiological_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "strange, soundless weeping",
+      "category": "uncanny_and_auditory_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "distinctly uneasy",
+      "category": "psychological_apprehension",
+      "expression_type": "multi_word_expression",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "would not answer or look up",
+      "category": "silence_and_uncertainty",
+      "expression_type": "multi_word_expression",
+      "lines": [9]
+    },
+    {
+      "lexical_item": "his body continued to be racked with silent sobbing",
+      "category": "physiological_and_emotional_distress",
+      "expression_type": "multi_word_expression",
+      "lines": [9]
+    },
+    {
+      "lexical_item": "soundless",
+      "category": "uncanny_silence",
+      "expression_type": "single_word",
+      "lines": [7]
+    },
+    {
+      "lexical_item": "silent sobbing",
+      "category": "emotional_distress",
+      "expression_type": "multi_word_expression",
+      "lines": [9]
+    },
+    {
+      "lexical_item": "no eyes, ears, nose or mouth",
+      "category": "bodily_anomaly_and_horror",
+      "expression_type": "multi_word_expression",
+      "lines": [11]
+    },
+    {
+      "lexical_item": "if you could call it a face",
+      "category": "uncanny_and_visual_horror",
+      "expression_type": "multi_word_expression",
+      "lines": [9]
+    },
+    {
+      "lexical_item": "round smooth head",
+      "category": "bodily_anomaly",
+      "expression_type": "multi_word_expression",
+      "lines": [11]
+    },
+    {
+      "lexical_item": "trembling hand",
+      "category": "physiological_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "trembling",
+      "category": "physiological_fear",
+      "expression_type": "single_word",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "scrambled down the path",
+      "category": "panic_and_flight",
+      "expression_type": "multi_word_expression",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "running blindly",
+      "category": "panic_and_disorientation",
+      "expression_type": "multi_word_expression",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "calling for help",
+      "category": "fear_response_and_escape",
+      "expression_type": "multi_word_expression",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "stumbled",
+      "category": "physical_disorientation",
+      "expression_type": "single_word",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "gasping for breath",
+      "category": "physiological_fear",
+      "expression_type": "multi_word_expression",
+      "lines": [13]
+    },
+    {
+      "lexical_item": "something horrible",
+      "category": "horror_and_perceived_threat",
+      "expression_type": "multi_word_expression",
+      "lines": [15]
+    },
+    {
+      "lexical_item": "no face",
+      "category": "uncanny_and_visual_horror",
+      "expression_type": "multi_word_expression",
+      "lines": [15]
+    },
+    {
+      "lexical_item": "No eyes, nose, mouth—nothing!",
+      "category": "bodily_anomaly_and_horror",
+      "expression_type": "multi_word_expression",
+      "lines": [19]
+    },
+    {
+      "lexical_item": "Do you mean it was like this",
+      "category": "suspense_and_anticipation",
+      "expression_type": "multi_word_expression",
+      "lines": [21]
+    },
+    {
+      "lexical_item": "no eyes, no ears, no features at all",
+      "category": "uncanny_and_visual_horror",
+      "expression_type": "multi_word_expression",
+      "lines": [21]
+    },
+    {
+      "lexical_item": "not even an eyebrow",
+      "category": "bodily_anomaly",
+      "expression_type": "multi_word_expression",
+      "lines": [21]
+    },
+    {
+      "lexical_item": "wind blew the lamp out",
+      "category": "darkness_and_suspense",
+      "expression_type": "multi_word_expression",
+      "lines": [21]
+    }
+  ]
+}

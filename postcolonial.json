@@ -1,0 +1,99 @@
+{
+  "corpus": "The Face in the Dark",
+  "author": "Ruskin Bond",
+  "analysis": "Postcolonial aspects",
+  "extraction": [
+    {
+      "lexical_item": "Anglo-Indian teacher",
+      "category": "colonial_identity",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Identifies the protagonist through a colonial-era cultural and social identity."
+    },
+    {
+      "lexical_item": "Simla",
+      "category": "colonial_geographical_context",
+      "expression_type": "single_word",
+      "lines": [1],
+      "interpretation": "Locates the narrative in a hill station associated with British colonial presence in India. This association is contextual rather than an explicit statement in the story."
+    },
+    {
+      "lexical_item": "From before Kipling's time",
+      "category": "colonial_literary_and_historical_reference",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Invokes Rudyard Kipling and establishes a historical frame associated with British colonial India."
+    },
+    {
+      "lexical_item": "the school had been run on English public school lines",
+      "category": "colonial_education",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Explicitly identifies the adoption of the English public-school educational model in an Indian institution."
+    },
+    {
+      "lexical_item": "boys",
+      "category": "colonial_educational_institution",
+      "expression_type": "single_word",
+      "lines": [1],
+      "interpretation": "Identifies the students within the institution shaped by English educational conventions. The word itself is not independently colonial."
+    },
+    {
+      "lexical_item": "wealthy Indian families",
+      "category": "indigenous_elite_and_class",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Indicates the participation of economically privileged Indian families in a British-model educational institution."
+    },
+    {
+      "lexical_item": "blazers, caps and ties",
+      "category": "cultural_imitation_and_institutional_identity",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Represents the adoption of British public-school dress conventions."
+    },
+    {
+      "lexical_item": "Life magazine",
+      "category": "western_media_reference",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Introduces an American publication as an external cultural reference. Its presence alone does not establish colonial domination."
+    },
+    {
+      "lexical_item": "Eton of the East",
+      "category": "colonial_cultural_imitation",
+      "expression_type": "multi_word_expression",
+      "lines": [1],
+      "interpretation": "Compares an Indian school with the prestigious English institution Eton, suggesting the symbolic authority of British educational models."
+    },
+    {
+      "lexical_item": "school cap",
+      "category": "colonial_educational_symbolism",
+      "expression_type": "multi_word_expression",
+      "lines": [11],
+      "interpretation": "Reintroduces the uniform as a marker of institutional identity. Its postcolonial relevance derives from the earlier description of the English-model school."
+    },
+    {
+      "lexical_item": "sahib",
+      "category": "colonial_social_hierarchy",
+      "expression_type": "single_word",
+      "lines": [13, 17, 21],
+      "occurrence_count": 3,
+      "interpretation": "A colonial-era honorific used by the watchman when addressing Mr Oliver, indicating a hierarchical relationship and inherited colonial forms of address."
+    },
+    {
+      "lexical_item": "watchman",
+      "category": "institutional_and_social_hierarchy",
+      "expression_type": "single_word",
+      "lines": [13, 21],
+      "interpretation": "Represents a subordinate institutional position in contrast with the teacher's social authority. The occupational term itself is not inherently colonial."
+    },
+    {
+      "lexical_item": "teacher",
+      "category": "colonial_educational_authority",
+      "expression_type": "single_word",
+      "lines": [7, 9],
+      "interpretation": "The protagonist occupies an institutional authority position within the English-model school. Its postcolonial significance depends on the surrounding educational context."
+    }
+  ]
+}

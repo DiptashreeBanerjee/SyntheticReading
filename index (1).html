@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interpreting the Eerie: A Synthetic Reading of the Face in the Dark</title>
+<meta name="description" content="A digital humanities project reading Ruskin Bond's short story through computational extraction of fear imagery and postcolonial vocabulary.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%95%AF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#0b1412; --pine:#122320; --mist:#d7dfda; --fog:#93a39d;
+  --tallow:#e6d49a; --rust:#9a4a38; --line:#24373a;
+  --display:"IM Fell English",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--night);color:var(--mist);font:1.05rem/1.75 var(--body);padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+a{color:var(--tallow)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;letter-spacing:.01em}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 1rem}
+h3{font-size:1.35rem;margin:0 0 .4rem;color:var(--tallow)}
+p{max-width:68ch}
+header.nav{position:sticky;top:0;z-index:20;background:rgba(11,20,18,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:.7rem 1rem}
+header.nav ul{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;justify-content:center}
+header.nav a{text-decoration:none;color:var(--fog);font-size:.95rem}
+header.nav a:hover,header.nav a:focus-visible{color:var(--tallow)}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);--x:50%;--y:45%}
+.hero svg.art{position:absolute;inset:0;width:100%;height:100%}
+.hero .dark{position:absolute;inset:0;background:radial-gradient(circle clamp(130px,22vw,260px) at var(--x) var(--y),rgba(11,20,18,0) 0,rgba(11,20,18,.55) 55%,rgba(11,20,18,.96) 100%)}
+.hero .inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:4rem 1.25rem}
+.hero h1{font-size:clamp(2.2rem,7.5vw,4.6rem);margin:0 0 1.2rem;max-width:16ch;text-shadow:0 2px 24px #000}
+.hero .sub{color:var(--fog);font-style:italic;max-width:46ch;text-shadow:0 1px 12px #000}
+.hero .hint{margin-top:2rem;font-size:.85rem;color:var(--fog)}
+section{padding:4.5rem 1.25rem;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:0 auto}
+.two{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--pine);border:1px solid var(--line);border-left:3px solid var(--rust);padding:1.5rem}
+.card p{margin:.4rem 0 0}
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;max-width:760px}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.6rem 3.2rem;border-left:1px solid var(--line);margin-left:1rem}
+ol.steps li::before{content:counter(s);position:absolute;left:-1rem;top:0;width:2rem;height:2rem;border-radius:50%;background:var(--night);border:1px solid var(--tallow);color:var(--tallow);display:grid;place-items:center;font-family:var(--display)}
+ol.steps li p{margin:.2rem 0}
+details{margin-top:1rem;background:var(--pine);border:1px solid var(--line);padding:1rem 1.2rem;max-width:760px}
+summary{cursor:pointer;color:var(--tallow)}
+details p{font-size:.95rem;color:var(--fog)}
+.gallery{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:2rem}
+figure{margin:0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);background:var(--pine)}
+figcaption{font-size:.9rem;color:var(--fog);margin-top:.5rem}
+.missing{display:none;border:1px dashed var(--fog);padding:2rem 1rem;text-align:center;color:var(--fog);font-size:.9rem}
+.author{display:grid;gap:2rem;grid-template-columns:minmax(140px,200px) 1fr;align-items:start}
+.portrait{aspect-ratio:1;background:var(--pine);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover}
+ul.files{padding-left:1.1rem}
+ul.files li{margin:.3rem 0}
+code{font-size:.9em;color:var(--tallow)}
+footer{padding:2.5rem 1.25rem;text-align:center;color:var(--fog);font-size:.9rem}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--night);padding:.5rem;z-index:50}
+@media (max-width:620px){.author{grid-template-columns:1fr}.portrait{max-width:180px}section{padding:3.2rem 1.1rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">What is Synthetic Reading?</a></li>
+    <li><a href="#procedure">Procedure</a></li>
+    <li><a href="#findings">Visualisations</a></li>
+    <li><a href="#interpretation">Interpretation</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#files">Files</a></li>
+  </ul>
+</header>
+
+<main id="main">
+<div class="hero" id="home">
+  <svg class="art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="#1a3a33">
+      <path d="M40 700 L110 330 L180 700Z M150 700 L240 260 L330 700Z M330 700 L400 380 L470 700Z M760 700 L850 280 L940 700Z M920 700 L990 360 L1060 700Z M1040 700 L1130 300 L1200 700Z M-20 700 L50 400 L120 700Z"/>
+    </g>
+    <rect x="0" y="640" width="1200" height="60" fill="#0f1f1b"/>
+    <ellipse cx="640" cy="640" rx="90" ry="18" fill="#2a3a37"/>
+    <path d="M585 640 Q590 520 640 505 Q690 520 695 640Z" fill="#2c3d3a"/>
+    <ellipse cx="640" cy="470" rx="42" ry="50" fill="#cfd8d2"/>
+    <path d="M594 452 Q640 395 686 452 Q640 440 594 452Z" fill="#1d2b2a"/>
+    <path d="M594 452 L575 456 Q640 466 686 452Z" fill="#1d2b2a"/>
+  </svg>
+  <div class="dark"></div>
+  <div class="inner">
+    <h1>Interpreting the Eerie: A Synthetic Reading of the Face in the Dark</h1>
+    <p class="sub">A computational and critical reading of Ruskin Bond’s short story: how fear is built from words, and where the colonial past is still audible.</p>
+    <p class="hint">Move your cursor or finger across the page to hold up a torch.</p>
+  </div>
+</div>
+
+<section id="about"><div class="wrap two">
+  <div>
+    <h2>What is Synthetic Reading?</h2>
+    <p>Synthetic reading is a method that combines a human reader’s judgement with machine-assisted analysis. The researcher first reads only a sample of a text, forms an initial impression, and frames a research problem. A language model then extracts patterns from the whole text, and the researcher checks, visualises and interprets them using literary and cultural theory.</p>
+    <p>It is “synthetic” because it joins two ways of reading: the close, partial, reflexive reading of a person and the exhaustive, systematic scanning of a computer.</p>
+  </div>
+  <div class="card" id="aim">
+    <h3>The aim of this project</h3>
+    <p>To examine how Ruskin Bond’s “The Face in the Dark” builds fear through vivid imagery, and to trace which words in the story belong to a postcolonial vocabulary. The project also tests whether a synthetic reading can support, rather than replace, a critical interpretation of a short supernatural story.</p>
+    <h3 style="margin-top:1.2rem">Research question</h3>
+    <p>How does the author employ vivid imagery of fear in “The Face in the Dark”, and which words from a postcolonial vocabulary appear in it?</p>
+  </div>
+</div></section>
+
+<section id="procedure"><div class="wrap">
+  <h2>Procedure</h2>
+  <ol class="steps">
+    <li><h3>Partial reading</h3><p>The story was split into sentences, giving 43. About 20 percent, 9 sentences, were selected at random. The sample happens to include both the first and the last sentence, so the story’s arc can be followed through it.</p></li>
+    <li><h3>Initial impression</h3><p>The opening sentences establish Mr Oliver as an Anglo-Indian teacher, an identity that matters throughout. The sample suggests a supernatural horror story with a dense use of imagery and an open ending that invites reader-response readings.</p></li>
+    <li><h3>Uploading the text</h3><p>The complete story was supplied to the language model without pre-processing.</p></li>
+    <li><h3>Prompting the model</h3><p>A single prompt asked for two exhaustive extractions: fear imagery and postcolonial aspects.</p>
+      <details><summary>Read the prompt</summary><p>To operationalize the analysis of the imagery of fear in the story, extract from the entire textual corpus all lexical items and multi-word expressions that function semantically within the theme of fear. Make another extraction including the post-colonial aspects in the story. The extraction should be exhaustive rather than selective, span the full length of the text without privileging any single section, and preserve the original lexical form of each item. The output must be structured in JSON format, enabling transparent inspection, reproducibility, and computational analysis.</p></details></li>
+    <li><h3>Extraction</h3><p>The model returned two JSON files, <code>fear.json</code> and <code>postcolonial.json</code>, listing each lexical item with its category, expression type, lines and a short interpretation.</p></li>
+    <li><h3>Visualisation</h3><p>Python (pandas, matplotlib and seaborn) matched every extracted expression against each sentence and plotted the distribution of fear and postcolonial vocabulary across the story, by number of occurrences and by thematic density.</p></li>
+    <li><h3>Interpretation</h3><p>The charts were read against the story and against literary theory, as set out below.</p></li>
+  </ol>
+</div></section>
+
+<section id="findings"><div class="wrap">
+  <h2>Visualisations</h2>
+  <p>Each chart plots the extracted vocabulary against sentence position. Replace the captions with a one-line statement of what each chart shows.</p>
+  <div class="gallery">
+    <figure><img src="images/partial_reading_density_chart.png" alt="Line chart comparing fear and postcolonial thematic density by sentence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="missing">Add images/partial_reading_density_chart.png</div><figcaption>Figure 1. Thematic density of fear and postcolonial vocabulary by sentence.</figcaption></figure>
+    <figure><img src="images/partial_reading_frequency_chart.png" alt="Line chart of expression frequency by sentence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="missing">Add images/partial_reading_frequency_chart.png</div><figcaption>Figure 2. Number of thematic expressions in each sentence.</figcaption></figure>
+    <figure><img src="images/figure-3.png" alt="Additional figure from the full-story analysis" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="missing">Add images/figure-3.png</div><figcaption>Figure 3. Caption for your third image.</figcaption></figure>
+    <figure><img src="images/figure-4.png" alt="Additional figure from the full-story analysis" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="missing">Add images/figure-4.png</div><figcaption>Figure 4. Caption for your fourth image.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="interpretation"><div class="wrap">
+  <h2>Interpretation</h2>
+  <p><strong>Fear.</strong> The words of fear are spread through the story rather than gathered at one point. This steady deployment keeps the reader in an eerie atmosphere from the sad sounds of the pines to the faceless boy, so the horror comes from accumulated imagery as much as from the final reveal.</p>
+  <p><strong>Postcolonial vocabulary.</strong> The postcolonial aspect stays present until the end of the story, where the watchman’s “sahib” is heard once more before the lamp goes out and the scene is dark again. The vocabulary of an English-style school, an Anglo-Indian teacher and a polite title of address keeps the colonial hierarchy in view even as the supernatural takes over.</p>
+  <p><strong>Open ending.</strong> The story stops at the moment of darkness and leaves the reader to complete its meaning, which makes it a useful case for reader-response theory: the final fear is produced in the reader’s imagination.</p>
+  <p><strong>Limitations.</strong> This is a single short text. The extraction depends on one prompt and on the model used, and the charts count words rather than measure effect, so the findings are interpretive evidence, not proof.</p>
+</div></section>
+
+<section id="author"><div class="wrap">
+  <h2>Author</h2>
+  <div class="author">
+    <div class="portrait"><img src="images/author.jpg" alt="Portrait of the author" onerror="this.remove()"></div>
+    <div>
+      <h3>[Your Full Name]</h3>
+      <p>[Degree and semester], Department of [Department], [University / College]. Interests: [e.g. digital humanities, postcolonial literature, horror and the supernatural in fiction].</p>
+      <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p><em>Reflexivity note:</em> I read the story in English as a [describe yourself as a reader]. The language model’s output is treated here as evidence to be checked against the text, not as a final authority.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="files"><div class="wrap">
+  <h2>Project files</h2>
+  <ul class="files">
+    <li><a href="https://github.com/YOUR-USERNAME/YOUR-REPO/tree/main/partial_reading">Partially read lines</a></li>
+    <li><a href="https://github.com/YOUR-USERNAME/YOUR-REPO/blob/main/prompt/prompt.txt">Prompt</a></li>
+    <li><a href="https://github.com/YOUR-USERNAME/YOUR-REPO/tree/main/themes">Extracted themes (fear.json, postcolonial.json)</a></li>
+    <li><a href="https://github.com/YOUR-USERNAME/YOUR-REPO/blob/main/code/sr.py">Python code</a></li>
+    <li><a href="https://github.com/YOUR-USERNAME/YOUR-REPO">Full repository</a></li>
+  </ul>
+</div></section>
+</main>
+
+<footer>Interpreting the Eerie: A Synthetic Reading of the Face in the Dark. An academic project on Ruskin Bond’s short story; the story’s copyright remains with its author.</footer>
+
+<script>
+(function(){
+  var h=document.getElementById('home'),still=window.matchMedia('(prefers-reduced-motion: reduce)').matches,t=0,pointer=false;
+  function set(x,y){h.style.setProperty('--x',x+'px');h.style.setProperty('--y',y+'px')}
+  function move(e){var p=e.touches?e.touches[0]:e,r=h.getBoundingClientRect();pointer=true;set(p.clientX-r.left,p.clientY-r.top)}
+  h.addEventListener('pointermove',move);h.addEventListener('touchmove',move,{passive:true});
+  if(!still){(function drift(){if(!pointer){t+=.004;var r=h.getBoundingClientRect();set(r.width*(.5+.18*Math.sin(t)),r.height*(.5+.08*Math.sin(t*1.7)))}requestAnimationFrame(drift)})()}
+})();
+</script>
+</body>
+</html>
